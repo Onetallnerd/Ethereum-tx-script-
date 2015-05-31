@@ -20,8 +20,8 @@ sendLots = function() {
 
     do {
       j++;
+
       // customize the transaction here
-    
       wei = 133700000000000 + j  + i* 92;
 
       g = 1;
@@ -42,7 +42,7 @@ sendLots = function() {
     else {
       console.log(i+": Next block is "+(eth.blockNumber+waitBlocks)+"... wait for it :)")
     }
-    
+
   } while (i < loops);
   return
 }
