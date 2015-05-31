@@ -1,3 +1,10 @@
+// This is free and unencumbered software released into the public domain.
+//
+// Paste this function into the JavaScript console and execute like so:
+// sendLots()
+// This can be saved to a file and loaded with loadScript('/path/to/sendLots.js')
+// for my version of sendLots you must have 6 accounts 0-5.. This sends from account 0 to account 1 - 5
+
 
 sendLots = function() {
   loops = 1000;
