@@ -11,6 +11,7 @@ sendLots = function() {
   txcount = 2;
   waitBlocks = 1;
   fromAccount = eth.accounts[0];
+  numAccounts = 5
 
   i = 0;
 
@@ -31,7 +32,7 @@ sendLots = function() {
            tx = eth.sendTransaction({from: fromAccount, to: toAccount, value: wei, gas: "2000000", gasPrice: "2000000"});
            console.log("tx"+j+": "+tx+" for "+wei+" wei");
            g++;
-        }while(g < 6)
+        } while (g <= numAccounts)
 
     } while (j < txcount)
 
