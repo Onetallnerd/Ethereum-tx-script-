@@ -2,10 +2,10 @@
 
 sendLots = function() {
   loops = 1000;
-  txcount = 3;
+  txcount = 1;
   waitBlocks = 1;
   fromAccount = eth.accounts[5];
-  toAccount = eth.accounts[4];
+  g = 0;
   i = 0;
   do {
     i++;
@@ -13,9 +13,16 @@ sendLots = function() {
     do {
       j++;
       // customize the transaction here
+    
       wei = 133700000000000 + j  + i* 92;
-      tx = eth.sendTransaction({from: fromAccount, to: toAccount, value: wei});
-      console.log("tx"+j+": "+tx+" for "+wei+" wei");
+        do {
+           toAccount = eth.accounts[g];
+           tx = eth.sendTransaction({from: fromAccount, to: toAccount, value: wei});
+           console.log("tx"+j+": "+tx+" for "+wei+" wei");
+           g++;
+        }while(g < 5) 
+        // 5 is the number of accounts I can send to
+     
     } while (j < txcount)
     if (i != loops) {
       console.log(i+": Waiting "+waitBlocks+" block for "+(eth.blockNumber+waitBlocks));
