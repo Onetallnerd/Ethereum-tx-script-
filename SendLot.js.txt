@@ -1,13 +1,11 @@
-// This is free and unencumbered software released into the public domain.
-//
-// Paste this function into the JavaScript console and execute like so:
-// sendLots(eth.coinbase, eth.accounts[1])
-// This can be saved to a file and loaded with loadScript('/path/to/sendLots.js')
-sendLots = function(fromAccount, toAccount) {
-  loops = 5;
-  txcount = 2;
+
+
+sendLots = function() {
+  loops = 1000;
+  txcount = 3;
   waitBlocks = 1;
- 
+  fromAccount = eth.accounts[5];
+  toAccount = eth.accounts[4];
   i = 0;
   do {
     i++;
@@ -15,7 +13,7 @@ sendLots = function(fromAccount, toAccount) {
     do {
       j++;
       // customize the transaction here
-      wei = (i-1)*10+j;
+      wei = 133700000000000 + j  + i* 92;
       tx = eth.sendTransaction({from: fromAccount, to: toAccount, value: wei});
       console.log("tx"+j+": "+tx+" for "+wei+" wei");
     } while (j < txcount)
