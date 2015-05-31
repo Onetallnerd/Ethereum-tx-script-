@@ -1,7 +1,7 @@
 
 sendLots = function() {
   loops = 1000;
-  txcount = 1;
+  txcount = 2;
   waitBlocks = 1;
   fromAccount = eth.accounts[0];
 
@@ -13,13 +13,13 @@ sendLots = function() {
       j++;
       // customize the transaction here
     
-      wei = 133700000000000 + j  + i* 92;
+      wei = 133700000001000 + j  + i* 92;
 
       g = 1;
 
         do {
            toAccount = eth.accounts[g];
-           tx = eth.sendTransaction({from: fromAccount, to: toAccount, value: wei, gas: "2000000", gasPrice: "200000"});
+           tx = eth.sendTransaction({from: fromAccount, to: toAccount, value: wei, gas: "2000000", gasPrice: "2000000"});
            console.log("tx"+j+": "+tx+" for "+wei+" wei");
            g++;
         }while(g < 6)
