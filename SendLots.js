@@ -13,9 +13,11 @@ sendLots = function() {
   fromAccount = eth.accounts[0];
 
   i = 0;
+
   do {
     i++;
     j = 0;
+
     do {
       j++;
       // customize the transaction here
@@ -30,7 +32,9 @@ sendLots = function() {
            console.log("tx"+j+": "+tx+" for "+wei+" wei");
            g++;
         }while(g < 6)
+
     } while (j < txcount)
+
     if (i != loops) {
       console.log(i+": Waiting "+waitBlocks+" block for "+(eth.blockNumber+waitBlocks));
       admin.debug.waitForBlocks(eth.blockNumber-1+waitBlocks); // This seems off
@@ -38,6 +42,7 @@ sendLots = function() {
     else {
       console.log(i+": Next block is "+(eth.blockNumber+waitBlocks)+"... wait for it :)")
     }
+    
   } while (i < loops);
   return
 }
